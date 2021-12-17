@@ -1,14 +1,12 @@
 class Plant
-  attr_accessor :garden, :name
-
-  @@all = []
-
-  def initialize(name:)
-    @name = name
-    @@all << self
-  end
-
-  def self.all
-    @@all
+  
+  def initialize(atb)
+    
+      atb.each do |key, value|
+       self.class.attr_accessor(key)
+       self.send("#{key}=", value)
+    end
   end
 end
+
+
